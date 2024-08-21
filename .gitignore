@@ -4,7 +4,6 @@ __pycache__/
 *$py.class
 
 mlenv/
-artifact/
 
 # C extensions
 *.so
