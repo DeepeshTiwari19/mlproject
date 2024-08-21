@@ -6,6 +6,7 @@ import sys
 from src.mlproject.components.data_ignestion import DataIngestion
 from src.mlproject.components.data_ignestion import DataIngestionConfig
 from src.mlproject.components.data_transformation import DataTransformationConfig,DataTransformation
+from src.mlproject.components.model_trainer import ModelTrainerConfig,ModelTrainer
 
 if __name__=='__main__':
     logging.info("The execution has started")
@@ -18,7 +19,10 @@ if __name__=='__main__':
 
         # data_trandormation_config=DataTransformationConfig()
         data_trandormation=DataTransformation()
-        data_trandormation.initiate_data_transormation(train_data_path,train_data_path)
+        train_arr,test_arr,_=data_trandormation.initiate_data_transormation(train_data_path,train_data_path)
+
+        model_trainer=ModelTrainer()
+        print(model_trainer.initiate_model_trainer(train_arr,test_arr))
 
 
     except Exception as e:
